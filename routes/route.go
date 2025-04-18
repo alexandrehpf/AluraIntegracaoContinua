@@ -19,5 +19,11 @@ func HandleRequest() {
 	r.GET("/alunos/", controllers.BuscaAlunoPorCPF)
 	r.GET("/index", controllers.ExibePaginaIndex)
 	r.NoRoute(controllers.RotaNaoEncontrada)
-	r.Run()
+	//r.Run()
+
+	err = r.Run()
+	if err != nil {
+		// Trate o erro da mesma forma
+		log.Fatalf("Erro ao iniciar o servidor: %v", err)
+	}
 }
