@@ -21,9 +21,8 @@ func HandleRequest() {
 	r.NoRoute(controllers.RotaNaoEncontrada)
 	//r.Run()
 
-	err = r.Run()
-	if err != nil {
-		// Trate o erro da mesma forma
-		log.Fatalf("Erro ao iniciar o servidor: %v", err)
-	}
+    // Usando a declaração curta para err
+    if err := r.Run(); err != nil {
+        log.Fatalf("Erro ao iniciar o servidor: %v", err)
+    }
 }
