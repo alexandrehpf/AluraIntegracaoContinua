@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"log"
 	"github.com/gin-gonic/gin"
 	"github.com/guilhermeonrails/api-go-gin/controllers"
 )
@@ -19,5 +20,10 @@ func HandleRequest() {
 	r.GET("/alunos/", controllers.BuscaAlunoPorCPF)
 	r.GET("/index", controllers.ExibePaginaIndex)
 	r.NoRoute(controllers.RotaNaoEncontrada)
-	r.Run()
+	//r.Run()
+
+    // Usando a declaração curta para err
+    if err := r.Run(); err != nil {
+        log.Fatalf("Erro ao iniciar o servidor: %v", err)
+    }
 }
